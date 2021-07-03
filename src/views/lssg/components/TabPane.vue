@@ -70,6 +70,8 @@
 </template>
 
 <script>
+import { findImg } from '@/utils/yijing.js'
+
 export default {
   filters: {},
   props: {
@@ -87,20 +89,10 @@ export default {
     };
   },
   created() {
-    this.lsgImg = this.findFinalGuaImg("64gua", this.dataInfo.img);
+    this.lsgImg = findImg("64gua", this.dataInfo.img);
     this.$nextTick();
   },
   methods: {
-    // 最终卦图片
-    findFinalGuaImg(file, name) {
-      let img = require("@/assets/mockdata/64gua/0.png");
-      try {
-        img = require(`@/assets/mockdata/${file}/${name}.png`);
-      } catch (e) {
-        console.log(e);
-      }
-      return img;
-    }
   }
 };
 </script>

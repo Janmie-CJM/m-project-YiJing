@@ -423,7 +423,7 @@ export default {
     },
     // 最终卦图片
     findFinalGuaImg(file, name) {
-      let img = require('@/assets/mockdata/64gua/0.png')
+      let img = require('@/assets/mockdata/backup.png')
       try {
         img = require(`@/assets/mockdata/${file}/${name}.png`)
       } catch (e) {

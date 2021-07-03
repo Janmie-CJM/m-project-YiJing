@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { findImg } from '@/utils/yijing.js'
+
 export default {
   filters: {
   },
@@ -41,20 +43,10 @@ export default {
     }
   },
   created() {
-    this.sygImg = this.findFinalGuaImg('sanyaogua', this.dataInfo.img)
+    this.sygImg = findImg('sanyaogua', this.dataInfo.img)
     this.$nextTick()
   },
   methods: {
-    // 最终卦图片
-    findFinalGuaImg(file, name) {
-      let img = require('@/assets/mockdata/64gua/0.png')
-      try {
-        img = require(`@/assets/mockdata/${file}/${name}.png`)
-      } catch (e) {
-        console.log(e)
-      }
-      return img
-    }
   }
 }
 </script>

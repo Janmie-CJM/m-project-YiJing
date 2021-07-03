@@ -1,30 +1,93 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+  <div>
+    <h1>1《易经》数字卦占卦具体方法：</h1>
+    <el-card shadow="never">
+      <h3>第一，选取三组三位数。</h3>
+      <p>
+        注意：三组数字随机选取，不能刻意为之；三组数字开头不能为0，0可以在中间或末尾。
+      </p>
+      <h3>第二，具体运算方法。</h3>
+      <p>
+        养成习惯，<span class="redColor">由下向上写：</span>第1组数字写在最下面；第2组写在中间，第3组写在最上面。
+      </p>
+      <p>以第1组数字除以8，记下余数，若被8整除，则余数为8.</p>
+      <p>以第2组数字除以8，记下余数，若被8整除，则余数为8.</p>
+      <p>以第3组数字除以6，记下余数，若被6整除，则余数为6.</p>
+      <p>
+        这样得到三个数字，分别代表占到的<span
+          class="redColor"
+        >下卦、上卦与变爻</span>。
+      </p>
+      <img :src="imgSrc1" alt="">
+      <h3>
+        第三，根据计算得到的三个数字，对照下图每个数字对应的卦，即可得出占到的卦及变爻。
+      </h3>
+      <img :src="imgSrc2" alt="">
+    </el-card>
+
+    <h1>2 举例说明：</h1>
+    <el-card shadow="never">
+      <p>一位朋友用数字卦占卦，他的三组三位数是：130，174，314.</p>
+      <p>
+        按照第1组除8，第2组除8，第三组除6的运算方法，最后得到三个数字2、6、2.
+      </p>
+      <p>以第2组数字除以8，记下余数，若被8整除，则余数为8.</p>
+      <el-collapse accordion>
+        <el-collapse-item>
+          <template slot="title">
+            计算结果
+          </template>
+          <p>2代表下卦，对应的是兑卦，泽；</p>
+          <p>6代表上卦，对应的是坎卦，水；</p>
+          <p>后一个2代表是第二爻。</p>
+          <img :src="imgSrc3" alt="" style="width:70%">
+        </el-collapse-item>
+      </el-collapse>
+      <p>他占到的是水泽节卦，九二爻。</p>
+      <p>
+        这个卦很凶，水在沼泽上面，水少的话就累积，水多的话就流走了。
+      </p>
+      <p>提醒我们要有节制，要调节，凡事不可以太顽固，不能我非要怎么样不可。</p>
+    </el-card>
+
+    <h1>3《易经》占卦需注意以下三点：</h1>
+    <el-card shadow="never" class="redColor">
+      <p>第一，只问一件事，不要问一辈子；</p>
+      <p>
+        第二，只问自己眼前的遭遇，不问别人隐私；
+      </p>
+      <p>第三，只问正常事情，不问违背道义的事。</p>
+    </el-card>
+
+    <h1>4《易经》为什么可以预知未来？</h1>
+    <el-card shadow="never">
+      <p>西方心理学家荣格从研究心电感应，推出一种心理学上的原理，叫做“共时性原理”，即同时发生的事之间会互相影响。</p>
+      <p>
+        许多事情同时发生，互相影响，但是我们往往忽略了细节；如果能够注意到所有的正在演变的细节，那么就有可能把握将来会出现的状况。
+      </p>
+      <p>荣格由此推论出一句话，叫做“有意义的偶然”。就是说：所有看似偶然的事情，都是有意义的。</p>
+      <p>很多时候我们都会忽略这一点，认为很多事情都是偶然的，事实上它正好提醒你，某些事情可能要发生了。</p>
+      <p>这也正好解释了，我们用数字卦占卦的时候，偶然出现的数字，就会给我们启发。</p>
+      <p>譬如，你现在正在疑惑什么问题，随即任意联想三组三位数，通过运算方法，很容易可以得到一个结果。由此，你就可以知道这个问题后续的发展如何。</p>
+      <p>当然，我们不能忽视一句话，“占卦容易解卦难”。所以，在学习《易经》的路上，我们需要不断努力，提高自己。</p>
+    </el-card>
+
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { findImg } from '@/utils/yijing.js'
 
 export default {
-  name: 'Dashboard',
-  computed: {
-    ...mapGetters([
-      'name'
-    ])
-  }
+  data() {
+    return {
+      imgSrc1: findImg('qianyan', '1'),
+      imgSrc2: findImg('qianyan', '2'),
+      imgSrc3: findImg('qianyan', '4')
+    }
+  },
+  methods: {}
 }
 </script>
 
-<style lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
-  }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
